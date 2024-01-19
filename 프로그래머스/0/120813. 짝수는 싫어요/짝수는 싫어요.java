@@ -1,0 +1,19 @@
+class Solution {
+    public int[] solution(int n) {
+        int len = 0;
+        for(int i = 1; i <= n; i++) {
+            if(i % 2 != 0) {
+                len++;
+            }    
+        }
+        int[] answer = new int[len];
+        int index = 0;
+        for(int i = 1; i <= n; i++) {
+            if(i % 2 != 0) {
+                answer[index] = i;
+                index++;
+            }
+        }
+        return answer;
+    }
+}
