@@ -3,6 +3,6 @@ SELECT users.user_id, users.nickname, SUM(board.price) AS total_sales
     JOIN used_goods_user users
     ON board.writer_id = users.user_id
     WHERE status = 'DONE'
-    GROUP BY users.user_id
-    HAVING total_sales >= 700000
+    GROUP BY users.user_id, users.nickname
+    HAVING SUM(board.price) >= 700000
     ORDER BY total_sales;
