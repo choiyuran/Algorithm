@@ -1,5 +1,5 @@
-SELECT HOUR(datetime) AS hour, COUNT(animal_id) AS count
+SELECT TO_NUMBER(TO_CHAR(datetime, 'hh24')) AS hour, COUNT(animal_id) AS count
     FROM animal_outs
-    WHERE HOUR(datetime) between 9 and 19
-    GROUP BY hour
-    ORDER BY hour;
+    WHERE TO_NUMBER(TO_CHAR(datetime, 'hh24')) between '09' and '19'
+    GROUP BY TO_NUMBER(TO_CHAR(datetime, 'hh24'))
+    ORDER BY TO_NUMBER(TO_CHAR(datetime, 'hh24'));
