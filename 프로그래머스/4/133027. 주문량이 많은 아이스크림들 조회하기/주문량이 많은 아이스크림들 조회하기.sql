@@ -12,7 +12,4 @@ secondTable as (
 )
 SELECT flavor
     FROM secondTable
-    FETCH NEXT 3 ROWS ONLY;
-
-    
-    
+    LIMIT 3;
