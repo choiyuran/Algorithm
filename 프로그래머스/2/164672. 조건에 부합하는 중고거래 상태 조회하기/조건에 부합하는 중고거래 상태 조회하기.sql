@@ -3,5 +3,5 @@ SELECT board_id, writer_id, title, price,
     WHEN status = 'RESERVED' THEN '예약중'
     ELSE '거래완료' END status
     FROM used_goods_board
-    WHERE DATE_FORMAT(created_date, '%Y-%m-%d') = '2022-10-05'
+    WHERE TO_CHAR(created_date, 'yyyy-MM-dd') = '2022-10-05'
     ORDER BY board_id DESC;
