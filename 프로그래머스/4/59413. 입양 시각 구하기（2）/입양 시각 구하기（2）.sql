@@ -1,6 +1,8 @@
-SET @hour := -1; -- 변수 선언
-
-SELECT (@hour := @hour + 1) as HOUR,
-(SELECT COUNT(*) FROM ANIMAL_OUTS WHERE HOUR(DATETIME) = @hour) as COUNT
-FROM ANIMAL_OUTS
-WHERE @hour < 23
+SELECT HOUR, COUNT(B.datetime) AS COUNT
+    FROM (SELECT LEVEL-1 HOUR
+            FROM DUAL
+         CONNECT BY LEVEL <= 24) A
+LEFT OUTER JOIN animal_outs B
+ON A.HOUR = TO_CHAR(B.datetime, 'HH24')
+GROUP BY HOUR
+ORDER BY HOUR;
