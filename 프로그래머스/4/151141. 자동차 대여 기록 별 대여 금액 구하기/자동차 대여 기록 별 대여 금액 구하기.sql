@@ -1,21 +1,21 @@
 WITH rateT AS (
     SELECT 
         h.history_id, h.car_id,
-        (h.end_date -  h.start_date) + 1 AS rental_days,
+        DATEDIFF(h.end_date, h.start_date) + 1 AS rental_days,
         CASE 
-            WHEN (h.end_date - h.start_date) + 1 >= 90 THEN (
+            WHEN DATEDIFF(h.end_date, h.start_date) + 1 >= 90 THEN (
                 SELECT discount_rate 
                 FROM car_rental_company_discount_plan 
                 WHERE duration_type = '90일 이상' 
                   AND car_type = '트럭'
             )
-            WHEN (h.end_date - h.start_date) + 1 >= 30 THEN (
+            WHEN DATEDIFF(h.end_date, h.start_date) + 1 >= 30 THEN (
                 SELECT discount_rate 
                 FROM car_rental_company_discount_plan 
                 WHERE duration_type = '30일 이상' 
                   AND car_type = '트럭'
             )
-            WHEN (h.end_date - h.start_date) + 1 >= 7 THEN (
+            WHEN DATEDIFF(h.end_date, h.start_date) + 1 >= 7 THEN (
                 SELECT discount_rate 
                 FROM car_rental_company_discount_plan 
                 WHERE duration_type = '7일 이상' 
