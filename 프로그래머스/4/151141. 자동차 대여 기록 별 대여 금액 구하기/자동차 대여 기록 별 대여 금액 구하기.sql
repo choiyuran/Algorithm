@@ -31,7 +31,7 @@ WITH rateT AS (
 
 SELECT 
     rateT.history_id, 
-    ROUND(c.daily_fee * rateT.rental_days * ((100 - rateT.discount_rate) / 100)) AS fee
+    FLOOR(c.daily_fee * rateT.rental_days * ((100 - rateT.discount_rate) / 100)) AS fee
 FROM rateT
 JOIN car_rental_company_car c ON rateT.car_id = c.car_id
 ORDER BY 
