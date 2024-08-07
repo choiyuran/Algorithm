@@ -1,10 +1,10 @@
 # [level 0] 캐릭터의 좌표 - 120861 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120861) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120861?language=javascript) 
 
 ### 성능 요약
 
-메모리: 71.1 MB, 시간: 0.03 ms
+메모리: 33.6 MB, 시간: 0.16 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 25일 21:24:33
+2024년 08월 07일 15:47:44
 
 ### 문제 설명
 
